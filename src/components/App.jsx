@@ -3,6 +3,7 @@ import { ContactForm } from "./Form/Form";
 import { nanoid } from "nanoid";
 import { ContactList } from "./Contacts/ContactList";
 import { ContactFilter } from "./ContactFilter/ContactFilter";
+import { MainContainer } from "./MainContainer.styled";
 
 export class App extends Component {
   state = {
@@ -51,16 +52,7 @@ export class App extends Component {
     const {filter} = this.state;
     const filteredContacts = this.getContactFiltered();
      return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',        
-        alignItems: 'flexStart',
-        fontSize: 18,
-        color: '#010101'
-      }}
-    >
+    <MainContainer>
       <h1>Phonebook</h1>
       <ContactForm  onAdd = {this.addContact} />
       <h2>Contacts</h2>
@@ -70,9 +62,7 @@ export class App extends Component {
       <ContactList
       contacts={filteredContacts}       
       onDelete={this.deleteContact}/>      
-    </div>
-  )
-  }
-
+    </MainContainer>
+  )}
 }
 
